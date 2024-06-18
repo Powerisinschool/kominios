@@ -1,5 +1,5 @@
 DEFAULT_HOST!=../default-host.sh
-HOST?=DEFAULT_HOST
+HOST?=$(DEFAULT_HOST)
 HOSTARCH!=../target-triplet-to-arch.sh $(HOST)
 
 CFLAGS?=-O2 -g
@@ -7,12 +7,13 @@ CPPFLAGS?=
 LDFLAGS?=
 LIBS?=
 
-DESTDIR?=
+DESTDIR?=/home/$(USER)/kominios/sysroot
 PREFIX?=/usr/local
 EXEC_PREFIX?=$(PREFIX)
 BOOTDIR?=$(EXEC_PREFIX)/boot
 INCLUDEDIR?=$(PREFIX)/include
 
+CC=$(HOME)/opt/cross/bin/i686-elf-gcc
 CFLAGS:=$(CFLAGS) -ffreestanding -Wall -Wextra
 CPPFLAGS:=$(CPPFLAGS) -D__is_kernel -Iinclude
 LDFLAGS:=$(LDFLAGS)

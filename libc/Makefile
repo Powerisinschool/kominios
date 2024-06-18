@@ -1,5 +1,5 @@
 DEFAULT_HOST!=../default-host.sh
-HOST?=DEFAULT_HOST
+HOST?=$(DEFAULT_HOST)
 HOSTARCH!=../target-triplet-to-arch.sh $(HOST)
 
 CFLAGS?=-O2 -g
@@ -7,8 +7,8 @@ CPPFLAGS?=
 LDFLAGS?=
 LIBS?=
 
-DESTDIR?=
-PREFIX?=/usr/local
+DESTDIR?=/home/$(USER)/kominios/sysroot
+PREFIX?=/usr
 EXEC_PREFIX?=$(PREFIX)
 INCLUDEDIR?=$(PREFIX)/include
 LIBDIR?=$(EXEC_PREFIX)/lib
